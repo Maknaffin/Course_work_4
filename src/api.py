@@ -20,7 +20,7 @@ class HHAPI(API):
     def get_vacancies(self, keyword):
         vacancies = []
         self.params['text'] = keyword
-        while self.params['page'] != 20:
+        while self.params['page'] != 5:
             response = requests.get(self.hh_api_url, headers=self.headers, params=self.params)
             items = response.json()['items']
             vacancies.extend(items)
@@ -39,10 +39,9 @@ class SJAPI(API):
     def get_vacancies(self, keyword):
         vacancies = []
         self.params['keyword'] = keyword
-        while self.params['page'] != 10:
+        while self.params['page'] != 5:
             response = requests.get(self.sj_api_url, headers=self.headers, params=self.params)
             items = response.json()['objects']
             vacancies.extend(items)
             self.params['page'] += 1
         return vacancies
-

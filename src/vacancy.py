@@ -6,8 +6,9 @@ class Vacancy:
         self.currency = currency
         self.salary = salary if salary else 0
 
-    def __repr__(self):
-        return f'Vacancy(title={self.title}, description={self.description}, currency={self.currency}, salary={self.salary})'
+    # def __repr__(self):
+    #     return f'Vacancy(title={self.title}, description={self.description}, ' \
+    #            f'currency={self.currency}, salary={self.salary})'
 
     def __lt__(self, other):
         return self.salary < other.salary
